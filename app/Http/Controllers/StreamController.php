@@ -25,7 +25,7 @@ class StreamController extends Controller
         $all_channels = Channel::with('viewer')->where('status', 1)->get();
         $all_category = Category::where('status', 1)->get();
 
-        $slider_channel = Channel::Where('status', 1)->inRandomOrder()->take(4)->get();
+        $slider_channel = Channel::Where('status', 1)->inRandomOrder()->take(1)->get();
         $user_agent  = $request->header('User-Agent');
         $ip_address = $request->ip();
 
