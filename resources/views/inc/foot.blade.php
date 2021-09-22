@@ -19,6 +19,7 @@
         <script src="https://cdn.jsdelivr.net/hls.js/latest/hls.js"></script>
         <script src="{{asset('js/plyr.min.js') }}"></script>
         <script src="{{asset('webfiles/layout-1/js/app.js')}}"></script>
+        
 
     </body>
 

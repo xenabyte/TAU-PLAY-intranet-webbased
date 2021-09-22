@@ -40,8 +40,7 @@
             <!-- Sidebar -->
             <nav id="sidebar" class="sidebar">
                 <div class="sidebar-brand">
-                    <img src="{{asset('tau-logo.png') }}" class="img" alt="">
-                    <img src="{{asset('tau-logo.png') }}" class="img-sm" alt="">
+                    <img src="{{asset('logo.png') }}" class="img" style="width: 70%; height: 100%" width="100" height="100" alt="">
                 </div>
                 <hr>
                 <ul class="sidebar-menu">

@@ -5,37 +5,27 @@
         <div class="col-md-12">
         <!-- Default -->
             <div class="panel panel-light h-auto">
-                
                 <div class="panel-body">
-
-                    <div class="example-area justify-content-start" data-title="Show Screen">
-
-
+                    <div class="example-area justify-content-start" data-title="Cinema Mode">
                         <div class="text-center my-4">
-
                             <div class="player">
                                 <video
                                     controls
+                                    autoplay
                                     crossorigin
                                     playsinline
                                     id="player"
                                 >
                                     <!-- Video files -->
                                     <source
-                                        src="http://196.13.111.128:80/FoxNews/HD/index.m3u8"
-                                        type="video/m3u8"
-                                        size="320"
-                                        id="player"
+                                        src="https://cdn.plyr.io/static/demo/View_From_A_Blue_Moon_Trailer-576p.mp4"
+                                        type="video/mp4"
+                                        size="1080"
                                     />
-                        
                                 </video>
                             </div>
-
                         </div>
-                        
-
                     </div>
-
                 </div>
             </div><!-- / Default -->
 
@@ -56,9 +46,6 @@
             </a>
         </div>
         @endforeach
-
-        
-
 
         <!-- Latest Movies -->
         @foreach($categories as $category)
@@ -86,7 +73,6 @@
                 @endforeach
             @endif
 
-
         </div><!-- / Latest Movies -->
         @endforeach
 
@@ -95,16 +81,14 @@
 
 @include('inc.foot')
 <script>
+    const play1 = new Plyr('#player');
     function loadDoc() {
-        console.log('im here');
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 var url = document.getElementById("channel_url").innerText;
                 (function () {
                     var video = document.querySelector('#player');
-                    
-
                     if (Hls.isSupported()) {
                         var hls = new Hls();
                         hls.loadSource(url);
@@ -114,8 +98,7 @@
                         });
                     }
 
-                    console.log(url);
-                    plyr.setup(video);
+                    const player = new Plyr(video);
                 })();
             }
         };
