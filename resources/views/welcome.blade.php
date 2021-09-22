@@ -6,7 +6,7 @@
         <!-- Default -->
             <div class="panel panel-light h-auto">
                 <div class="panel-body">
-                    <div class="example-area justify-content-start" data-title="Cinema Mode">
+                    <div class="example-area justify-content-start" data-title="Cinema">
                         <div class="text-center my-4">
                             <div class="player">
                                 <video
