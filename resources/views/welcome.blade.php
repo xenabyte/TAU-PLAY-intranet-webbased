@@ -41,8 +41,7 @@
                 <p class="card-text text-light">Live -  {{ count($channel->viewer->where("status", 1)) }} Watching</p>
             </div>
             <a href="#" class="btn btn-light btn-rounded btn-play btn-square">
-                <i id="play" onclick="loadDoc()" class="fas fa-play"></i>
-                <p style="display: none" id="channel_url">{{ $channel->channel_url }}</p>
+                <i id="play" onclick="loadDoc('{{ $channel->channel_url }}')" class="fas fa-play"></i>
             </a>
         </div>
         @endforeach
@@ -59,13 +58,12 @@
                             <span class="badge badge-danger">{{ $channel->channel_name }}</span>
                             <span class="badge video-duration-badge">{{ count($channel->viewer->where("status", 1)) }} Watching</span>
                         </div>
-                        <a href="#" class="card-body"  onclick="loadDoc()">
+                        <a href="#" class="card-body"  onclick="loadDoc('{{ $channel->channel_url }}')">
                             
                             <span class="card-title">{{ $channel->channel_name }}</span>
                             <span class="card-text">
                                 {{ count($channel->viewer->where("status", 1)) }} Watching
                             </span>
-                            <p style="display: none" id="channel_url">{{ $channel->channel_url }}</p>
                         </a>
                     </div>
 
@@ -82,16 +80,16 @@
 @include('inc.foot')
 <script>
     const play1 = new Plyr('#player');
-    function loadDoc() {
+    function loadDoc(url) {
         var xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-                var url = document.getElementById("channel_url").innerText;
                 (function () {
                     var video = document.querySelector('#player');
                     if (Hls.isSupported()) {
                         var hls = new Hls();
                         hls.loadSource(url);
+                        console.log(url);
                         hls.attachMedia(video);
                         hls.on(Hls.Events.MANIFEST_PARSED,function() {
                         video.play();
